@@ -1,0 +1,253 @@
+# [PROJECT_NAME]
+
+[One-sentence description of what the project does]
+
+## Features
+
+[AGENT INSTRUCTION: List features in bullet points. Use bold for feature names, followed by description]
+
+- **[Feature Name]**: [Brief description of what it does]
+- **[Feature Name]**: [Brief description with any technical details]
+- **[Feature Name]**: [Brief description]
+
+## Agent Notes
+
+**Status**: [Initial Draft | In Progress | Complete]
+**Last Updated**: [Date]
+**Key Context**: [Any important context for agents working on this project]
+
+## Getting Started
+
+### Prerequisites
+
+- [Runtime/SDK and version - check project files for exact version]
+- [Any accounts or services required]
+- [DATABASE_REQUIREMENT - if applicable]
+
+### Third-Party Service Setup
+
+[CONDITIONAL: Include this section only if the project integrates with external APIs/services]
+
+#### [Service Name]
+
+1. Go to [Service Dashboard URL]
+2. Log in with your account
+3. Click "[Create App/Project Button Name]"
+4. Fill in the required information:
+   - [Field 1]: [Value or description]
+   - [Field 2]: [Value or description]
+   - [Redirect URI/Callback URL]: `[URL]`. [Link to documentation if applicable]
+5. Accept the terms and conditions
+6. Copy the [API Key/Client ID/Client Secret/etc.]
+
+[Repeat for additional services]
+
+### Application Configuration
+
+1. Open `[path/to/config/file]` file
+2. Update the configuration section:
+   ```[language]
+   [Configuration format - JSON/YAML/ENV/etc.]
+   "[Section]": {
+     "[Key1]": "[your-value-here]",
+     "[Key2]": "[your-value-here]"
+   }
+   ```
+3. [Any additional configuration steps]
+
+### Running the Application
+
+1. Open a terminal and navigate to the project root directory
+2. [Build command if required]
+3. Run the application:
+   ```bash
+   [command to run the application]
+   ```
+4. Open your browser to `[URL]` or [access method]
+5. [Any post-startup steps]
+
+### Running with Docker Compose (Optional)
+
+[CONDITIONAL: Include this section only if Docker support exists]
+
+Docker Compose provides optional infrastructure services for enhanced functionality:
+
+- **[Service 1]**: [Description of what it provides]
+- **[Service 2]**: [Description of what it provides]
+
+#### Prerequisites
+
+- Docker and Docker Compose installed
+- [Note about what runs in Docker vs locally]
+
+#### Starting Services
+
+1. Start services:
+
+   ```bash
+   docker compose up -d [service-names]
+   ```
+
+2. [Any initialization steps]: ```bash
+
+   [initialization commands]
+
+   ```
+
+   ```
+
+3. Run the application:
+
+   ```bash
+   [application run command]
+   ```
+
+4. Access the services:
+   - [Service 1]: `[URL]`
+   - [Service 2]: `[URL]`
+
+#### Stopping Services
+
+```bash
+docker compose down
+```
+
+#### Running Everything in Docker (Alternative)
+
+[CONDITIONAL: Include only if full Docker support exists]
+
+```bash
+docker compose up -d --force-recreate --build
+```
+
+**Note**: [Any important notes about running fully in Docker]
+
+## Development Setup
+
+### Git Hooks
+
+[CONDITIONAL: Include only if git hooks are configured]
+
+This project uses git hooks to enforce [Convention Name] format. To enable the hooks, run:
+
+```bash
+git config core.hooksPath [path-to-hooks]
+```
+
+The [hook-name] hook validates:
+
+- [Validation rule 1]
+- [Validation rule 2]
+- [Validation rule 3]
+
+## Architecture
+
+This application follows **Vertical Slice Architecture** with **Domain-Driven Design (DDD)** principles:
+
+### Structure
+
+```
+[project-root]/
+├── [folder-1]/
+│   ├── [subfolder-1]/      # [Description]
+│   └── [subfolder-2]/      # [Description]
+├── [folder-2]/             # [Description]
+└── [folder-3]/             # [Description]
+```
+
+### Domain Layer
+
+[AGENT INSTRUCTION: Describe domain entities and their location]
+
+Domain entities are pure [language] classes located in `[path]`:
+
+- **[Entity1]**: [Description of entity and its business logic]
+- **[Entity2]**: [Description of entity and its business logic]
+
+Domain entities encapsulate business rules and are independent of infrastructure concerns.
+
+### Infrastructure Layer
+
+[AGENT INSTRUCTION: Describe infrastructure components]
+
+The Infrastructure layer handles technical details:
+
+- **[Component1]**: [Description of technical responsibility]
+- **[Component2]**: [Description with implementation details]
+- **[Component3]**: [Description]
+
+#### [Optimization Section Name]
+
+[AGENT INSTRUCTION: Include this subsection if there are performance optimizations or API strategies]
+
+The `[ServiceName]` uses [optimization strategy]:
+
+- **[Technique1]**: [Description of how it works and benefit]
+- **[Technique2]**: [Description with metrics if available]
+- **[Technique3]**: [Description]
+
+[Quantified benefit statement if available, e.g., "This reduces API calls by ~X% compared to..."]
+
+### Benefits
+
+- **Testability**: [How the architecture improves testing]
+- **Maintainability**: [How it improves maintenance]
+- **Decoupling**: [How components are decoupled]
+
+## Troubleshooting
+
+[AGENT INSTRUCTION: Add common issues and solutions as they are discovered during development]
+
+- [Issue description]: [Solution]
+- [Issue description]: [Solution]
+- [Issue description]: [Solution]
+
+---
+
+## Instructions for Coding Agents
+
+### When Creating a New README from This Template
+
+1. **Replace all `[PLACEHOLDERS]`** with actual values by examining the codebase
+2. **Remove conditional sections** that don't apply (marked with CONDITIONAL)
+3. **Keep `[AGENT INSTRUCTION:]` markers** in sections where information is not yet available
+4. **Update Agent Notes** section with current status and context
+5. **Do not remove empty sections** - they serve as reminders to add information later
+
+### When Updating an Existing README
+
+1. **Search for `[AGENT INSTRUCTION:]` markers** to find incomplete sections
+2. **Fill in information** as it becomes available during development
+3. **Remove `[AGENT INSTRUCTION:]` marker** once section is complete
+4. **Update "Last Updated" date** in Agent Notes
+5. **Add to Troubleshooting** as you encounter and solve issues
+
+### Section Priority
+
+**Critical (must complete first):**
+
+- Project name and description
+- Prerequisites
+- Running the Application
+- Features (even if minimal)
+
+**Important (complete as features are built):**
+
+- Third-Party Service Setup
+- Application Configuration
+- Architecture sections
+
+**As-needed (complete when applicable):**
+
+- Docker setup
+- Development Setup
+- Troubleshooting
+
+### Markdown Guidelines
+
+- Use consistent heading levels (# for title, ## for main sections, ### for subsections)
+- Use code blocks with language specification for better syntax highlighting
+- Keep descriptions concise - prefer bullet points over paragraphs
+- Use **bold** for emphasis on feature names and important terms
+- Always include actual commands, not pseudo-commands
+- Provide exact file paths, not generic ones
