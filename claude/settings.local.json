@@ -1,0 +1,15 @@
+{
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(dotnet build:*)",
+      "Bash(git commit:*)",
+      "Bash(dotnet test:*)",
+      "Bash(dotnet run:*)",
+    ]
+  }
+}
