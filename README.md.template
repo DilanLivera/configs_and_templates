@@ -10,12 +10,6 @@
 - **[Feature Name]**: [Brief description with any technical details]
 - **[Feature Name]**: [Brief description]
 
-## Agent Notes
-
-**Status**: [Initial Draft | In Progress | Complete]
-**Last Updated**: [Date]
-**Key Context**: [Any important context for agents working on this project]
-
 ## Getting Started
 
 ### Prerequisites
@@ -144,55 +138,31 @@ The [hook-name] hook validates:
 
 This application follows **Vertical Slice Architecture** with **Domain-Driven Design (DDD)** principles:
 
-### Structure
+### Folder Structure
 
 ```
 [project-root]/
-├── [folder-1]/
-│   ├── [subfolder-1]/      # [Description]
-│   └── [subfolder-2]/      # [Description]
-├── [folder-2]/             # [Description]
-└── [folder-3]/             # [Description]
+├── [Domain]/
+│   ├── [Bounded-Context-1]/
+│   └── [Bounded-Context-2]/
+│   └── [Common]/
+├── [Features]/
+│   ├── [Feature-1]/
+│   ├── [Feature-2]/
+│   └── [Common]/
+└── [Infrastructure]/
+│   └── [Api-1]/
+│   └── [Api-2]/
+│   └── [DB]/
 ```
 
-### Domain Layer
+#### Infrastructure folder
 
-[AGENT INSTRUCTION: Describe domain entities and their location]
+The Infrastructure folder contains the code that handles technical details(e.g. API, DB, OTel, Logging, Auth, etc...).
 
-Domain entities are pure [language] classes located in `[path]`:
+### Domain Design
 
-- **[Entity1]**: [Description of entity and its business logic]
-- **[Entity2]**: [Description of entity and its business logic]
-
-Domain entities encapsulate business rules and are independent of infrastructure concerns.
-
-### Infrastructure Layer
-
-[AGENT INSTRUCTION: Describe infrastructure components]
-
-The Infrastructure layer handles technical details:
-
-- **[Component1]**: [Description of technical responsibility]
-- **[Component2]**: [Description with implementation details]
-- **[Component3]**: [Description]
-
-#### [Optimization Section Name]
-
-[AGENT INSTRUCTION: Include this subsection if there are performance optimizations or API strategies]
-
-The `[ServiceName]` uses [optimization strategy]:
-
-- **[Technique1]**: [Description of how it works and benefit]
-- **[Technique2]**: [Description with metrics if available]
-- **[Technique3]**: [Description]
-
-[Quantified benefit statement if available, e.g., "This reduces API calls by ~X% compared to..."]
-
-### Benefits
-
-- **Testability**: [How the architecture improves testing]
-- **Maintainability**: [How it improves maintenance]
-- **Decoupling**: [How components are decoupled]
+[AGENT INSTRUCTION: Add a link to the Domain design document].
 
 ## Troubleshooting
 
