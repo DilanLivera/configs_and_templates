@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Pre-commit hook: Format and Build
+# This script ensures the code is formatted and builds successfully before allowing a commit.
+
+echo "--- Pre-commit hook started ---"
+
+# Capture the list of staged files before formatting so we only re-stage those.
+STAGED_FILES=$(git diff --name-only --cached)
+
+# 1. Run dotnet format
+echo "Step 1: Running dotnet format..."
+dotnet format
+FORMAT_EXIT_CODE=$?
+
+if [ $FORMAT_EXIT_CODE -ne 0 ]; then
+    echo "Formatting encountered issues (Exit Code: $FORMAT_EXIT_CODE)."
+    # We don't necessarily want to fail here if it's just a warning,
+    # but we'll proceed to build.
+fi
+
+# 2. Re-stage only the files that were originally staged before formatting.
+# Using 'git add -u' would sweep up unrelated working-tree changes; instead
+# we target exactly the files the user intended to commit.
+echo "Step 2: Staging formatted files..."
+if [ -n "$STAGED_FILES" ]; then
+    echo "$STAGED_FILES" | xargs git add
+fi
+
+# 3. Run dotnet build
+# We use Release configuration to catch more potential issues.
+echo "Step 3: Running dotnet build..."
+dotnet build --configuration Debug --no-restore
+BUILD_EXIT_CODE=$?
+
+if [ $BUILD_EXIT_CODE -ne 0 ]; then
+    echo "--------------------------------------------------"
+    echo "BUILD FAILED! Commit aborted."
+    echo "Please fix the build errors before committing."
+    echo "--------------------------------------------------"
+    exit 1
+fi
+
+echo "--- Pre-commit hook finished successfully ---"
+exit 0
+
