@@ -11,5 +11,6 @@
       "Bash(dotnet test:*)",
       "Bash(dotnet run:*)",
     ]
-  }
+  },
+  "autoMemoryEnabled": false
 }
