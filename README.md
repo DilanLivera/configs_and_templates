@@ -1,0 +1,38 @@
+# Configs and Templates
+
+A starter kit for new .NET projects. Copy what you need, configure once, and get consistent formatting, commit hygiene, and AI-assisted workflows out of the box.
+
+## Project Docs
+
+Templates so every project starts with the same documentation structure. Copy them into your project root and fill in the placeholders.
+
+- [README.md.template](README.md.template) — project README scaffold with embedded agent instructions
+- [CHANGELOG.md.template](CHANGELOG.md.template) — Keep a Changelog format
+- [ADR.md.template](ADR.md.template) — Architecture Decision Record template
+
+## Code Quality
+
+Copy these into your project root — editors and git pick them up automatically.
+
+- [.editorconfig](.editorconfig) — consistent formatting across C#, JS/TS, XML, and Markdown
+- [.gitattributes](.gitattributes) — line ending normalization and binary file handling
+- [.gitignore](.gitignore) — .NET/C# project ignores
+
+## Git
+
+Git hooks that enforce code quality and commit message standards. Copy the `.githooks/` directory into your project, then enable it:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+- [pre-commit](.githooks/pre-commit) — runs `dotnet format` and `dotnet build` before each commit
+- [commit-msg](.githooks/commit-msg) — enforces [Conventional Commits](https://www.conventionalcommits.org/) format
+
+## AI Workflows
+
+Copy the settings file to `.claude/settings.local.json` in your project and adjust permissions as needed.
+
+- [settings.local.json](claude/settings.local.json) — Claude Code permissions and plugin config
+- [Business_Analyst.md](ai_prompts/Business_Analyst.md) — requirements discovery prompt
+- [Solution_Architect.md](ai_prompts/Solution_Architect.md) — DDD solution design prompt
