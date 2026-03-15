@@ -22,9 +22,16 @@ fi
 # 2. Re-stage only the files that were originally staged before formatting.
 # Using 'git add -u' would sweep up unrelated working-tree changes; instead
 # we target exactly the files the user intended to commit.
+# We skip files that no longer exist on disk (i.e. staged deletions) because
+# dotnet format cannot modify them and their deletion is already staged — running
+# 'git add' on a missing file would produce a fatal pathspec error.
 echo "Step 2: Staging formatted files..."
 if [ -n "$STAGED_FILES" ]; then
-    echo "$STAGED_FILES" | xargs git add
+    echo "$STAGED_FILES" | while IFS= read -r file; do
+        if [ -e "$file" ]; then
+            git add "$file"
+        fi
+    done
 fi
 
 # 3. Run dotnet build
@@ -43,4 +50,5 @@ fi
 
 echo "--- Pre-commit hook finished successfully ---"
 exit 0
+
 
