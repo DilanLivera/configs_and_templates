@@ -15,12 +15,15 @@ white='\033[37m'
 
 sep="${dim} · ${reset}"
 
-model=$(echo "$input" | jq -r '.model.id // empty' | sed 's/claude-//')
-total_in=$(echo "$input" | jq -r '.context_window.total_input_tokens // 0')
-total_out=$(echo "$input" | jq -r '.context_window.total_output_tokens // 0')
-used_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
-five_hour_used=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
-five_hour_resets=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
+IFS=$'\t' read -r model total_in total_out five_hour_used five_hour_resets < <(
+  printf '%s' "$input" | jq -r '[
+    (.model.id // "" | ltrimstr("claude-")),
+    (.context_window.total_input_tokens // 0),
+    (.context_window.total_output_tokens // 0),
+    (.rate_limits.five_hour.used_percentage // ""),
+    (.rate_limits.five_hour.resets_at // "")
+  ] | @tsv'
+)
 
 total_tokens=$(( total_in + total_out ))
 
