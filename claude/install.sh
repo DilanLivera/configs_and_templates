@@ -30,4 +30,15 @@ echo "Installing Claude global settings..."
 mkdir -p "$CLAUDE_DIR"
 symlink "$GLOBAL_DIR/settings.json"          "$CLAUDE_DIR/settings.json"
 symlink "$GLOBAL_DIR/statusline-command.sh"  "$CLAUDE_DIR/statusline-command.sh"
+
+echo "Installing plugins..."
+while IFS= read -r plugin; do
+  if claude plugins list --json 2>/dev/null | jq -e --arg p "$plugin" '.[] | select(.id == $p)' > /dev/null 2>&1; then
+    echo "  ok $plugin"
+  else
+    echo "  installing $plugin"
+    claude plugins install "$plugin"
+  fi
+done < <(jq -r '.enabledPlugins | keys[]' "$GLOBAL_DIR/settings.json")
+
 echo "Done."
