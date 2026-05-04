@@ -9,11 +9,11 @@
       "Bash(dotnet build:*)",
       "Bash(git commit:*)",
       "Bash(dotnet test:*)",
-      "Bash(dotnet run:*)",
+      "Bash(dotnet run:*)"
     ]
   },
   "autoMemoryEnabled": false,
   "enabledPlugins": {
     "dotnet-skills@dotnet-skills": true
-  },
+  }
 }
