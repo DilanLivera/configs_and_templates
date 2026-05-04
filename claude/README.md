@@ -17,8 +17,9 @@ claude/
 bash claude/install.sh
 ```
 
-Symlinks the global files into `~/.claude/`. Safe to re-run — existing symlinks pointing to
-the correct target are left untouched; any pre-existing regular files are backed up first.
+Symlinks the global files into `~/.claude/` and installs any marketplace plugins listed in
+`global/settings.json` under `enabledPlugins`. Safe to re-run — existing symlinks and
+already-installed plugins are left untouched.
 
 ## Project settings
 
