@@ -1,8 +1,4 @@
 {
-  "attribution": {
-    "commit": "",
-    "pr": ""
-  },
   "permissions": {
     "allow": [
       "Bash(git add:*)",
@@ -11,9 +7,5 @@
       "Bash(dotnet test:*)",
       "Bash(dotnet run:*)"
     ]
-  },
-  "autoMemoryEnabled": false,
-  "enabledPlugins": {
-    "dotnet-skills@dotnet-skills": true
   }
 }
