@@ -1,8 +1,4 @@
 {
-  "statusLine": {
-    "type": "command",
-    "command": "bash $HOME/.claude/statusline-command.sh"
-  },
   "attribution": {
     "commit": "",
     "pr": ""
@@ -40,6 +36,13 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "bash $HOME/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "dotnet-skills@dotnet-skills": true
+  },
   "extraKnownMarketplaces": {
     "dotnet-skills": {
       "source": {
@@ -51,7 +54,15 @@
   "autoMemoryEnabled": false,
   "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
-  "enabledPlugins": {
-    "dotnet-skills@dotnet-skills": true
+  "model": "opus",
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "OTEL_METRICS_EXPORTER": "otlp",
+    "OTEL_LOGS_EXPORTER": "otlp",
+    "OTEL_TRACES_EXPORTER": "otlp",
+    "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
+    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://100.114.245.77:4317",
+    "OTEL_LOG_USER_PROMPTS": "1",
+    "OTEL_LOG_RAW_API_BODIES": "1"
   }
 }
