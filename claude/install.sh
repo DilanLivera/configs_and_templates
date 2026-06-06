@@ -63,6 +63,24 @@ while IFS= read -r repo; do
   fi
 done < <(jq -r '(.extraKnownMarketplaces // {}) | to_entries[] | .value.source.repo // empty' "$SETTINGS")
 
+# Register user-scoped MCP servers declared in global/mcp-servers.json. These
+# write into ~/.claude.json (user scope) so they're available in every project.
+# Only stdio servers are handled here; add others by hand if needed.
+MCP_FILE="$GLOBAL_DIR/mcp-servers.json"
+if [ -f "$MCP_FILE" ]; then
+  echo "Registering MCP servers (user scope)..."
+  while IFS= read -r name; do
+    [ -z "$name" ] && continue
+    if claude mcp get "$name" > /dev/null 2>&1; then
+      echo "  ok $name"
+    else
+      mapfile -t parts < <(jq -r --arg n "$name" '.[$n] | (.command, (.args[]?))' "$MCP_FILE")
+      echo "  adding $name"
+      claude mcp add --scope user "$name" -- "${parts[@]}"
+    fi
+  done < <(jq -r 'keys[]' "$MCP_FILE")
+fi
+
 echo "Installing plugins..."
 while IFS= read -r plugin; do
   [ -z "$plugin" ] && continue
