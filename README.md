@@ -31,8 +31,9 @@ git config core.hooksPath .githooks
 
 ## AI Workflows
 
-Copy the settings file to `.claude/settings.local.json` in your project and adjust permissions as needed.
+Cross-machine Claude Code configuration lives in [`claude/`](claude/) — global settings,
+statusline, personal skills, and plugins. On a new machine, run `bash claude/install.sh`
+to symlink it into `~/.claude/`. See [claude/README.md](claude/README.md) for details.
 
-- [settings.local.json](claude/settings.local.json) — Claude Code permissions and plugin config
 - [Business_Analyst.md](ai_prompts/Business_Analyst.md) — requirements discovery prompt
 - [Solution_Architect.md](ai_prompts/Solution_Architect.md) — DDD solution design prompt

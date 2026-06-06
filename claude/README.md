@@ -16,7 +16,6 @@ claude/
     CLAUDE.md               Global memory (optional) — symlinked if present
     keybindings.json        Keybindings (optional) — symlinked if present
   install.sh                Installs global config on a new machine
-  settings.local.json       Template for project-level .claude/settings.local.json
   .gitignore                Tripwire so secrets / session state can't be committed
 ```
 
@@ -44,9 +43,3 @@ changes the UI made before discarding it.
 
 Directory symlinks (`skills/`, etc.) don't have this problem: new files written
 inside them land in the repo automatically.
-
-## Project settings
-
-Copy `settings.local.json` into a new project as `.claude/settings.local.json` and
-adjust the allowed commands for that project's stack. Only add things specific to
-the project — anything that should apply everywhere belongs in `global/settings.json`.
