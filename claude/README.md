@@ -9,7 +9,7 @@ claude/
   global/
     settings.json           Global settings — symlinked to ~/.claude/settings.json
     statusline-command.sh   Status line script — symlinked to ~/.claude/statusline-command.sh
-    CLAUDE.md               Global memory — symlinked to ~/.claude/CLAUDE.md
+    AGENTS.md               Global memory (tool-neutral) — symlinked to ~/.claude/CLAUDE.md
     skills/                 Personal skills — symlinked to ~/.claude/skills/
     hooks/                  Hook scripts — symlinked to ~/.claude/hooks/
     mcp-servers.json        User-scoped MCP servers to register (stdio)

@@ -47,7 +47,9 @@ symlink "$GLOBAL_DIR/skills"                 "$CLAUDE_DIR/skills"
 symlink "$GLOBAL_DIR/agents"                 "$CLAUDE_DIR/agents"
 symlink "$GLOBAL_DIR/commands"               "$CLAUDE_DIR/commands"
 symlink "$GLOBAL_DIR/hooks"                  "$CLAUDE_DIR/hooks"
-symlink "$GLOBAL_DIR/CLAUDE.md"              "$CLAUDE_DIR/CLAUDE.md"
+# AGENTS.md is the canonical, tool-neutral memory file; Claude Code reads it via
+# the ~/.claude/CLAUDE.md symlink. Point other agents at the same file as needed.
+symlink "$GLOBAL_DIR/AGENTS.md"              "$CLAUDE_DIR/CLAUDE.md"
 symlink "$GLOBAL_DIR/keybindings.json"       "$CLAUDE_DIR/keybindings.json"
 
 # Register marketplaces declared under extraKnownMarketplaces before installing
