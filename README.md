@@ -35,5 +35,7 @@ Cross-machine Claude Code configuration lives in [`claude/`](claude/) — global
 statusline, personal skills, and plugins. On a new machine, run `bash claude/install.sh`
 to symlink it into `~/.claude/`. See [claude/README.md](claude/README.md) for details.
 
-- [Business_Analyst.md](ai_prompts/Business_Analyst.md) — requirements discovery prompt
-- [Solution_Architect.md](ai_prompts/Solution_Architect.md) — DDD solution design prompt
+Two role-based workflows ship as Claude Code skills (synced via `claude/global/skills/`):
+
+- `business-analyst` — requirements discovery; produces `REQUIREMENTS.md`
+- `solution-architect` — DDD design; produces `design.md` + `architecture-decision-records.md`
