@@ -1,17 +1,20 @@
 ---
 name: deep-work
-description: Execute a substantial, multi-step task with full engineering rigor — plan into a checklist, fan research out to subagents, implement step-by-step with one atomic commit per step, do an elegance pass, and verify. Use when I explicitly ask to do something thoroughly / with rigor / "deep work", or for a meaty feature, refactor, or investigation. Skip for quick one-line fixes. Issue-agnostic — pair with gh-issue-task in issue-driven repos.
+description: Execute a substantial, multi-step task with full engineering rigor — break it into an outcome-based checklist tracked in a scratch file, fan research out to subagents, implement step-by-step with one atomic commit per step, do an elegance pass, and verify. Use when I explicitly ask to do something thoroughly / with rigor / "deep work", or for a meaty feature, refactor, or investigation. Skip for quick one-line fixes. Issue-agnostic — pair with gh-issue-task in issue-driven repos.
 ---
 
 # Deep work — disciplined task execution
 
 A heavier, opt-in process for substantial work. For quick, obvious fixes, skip it —
-the global defaults already cover plan-first and verify-before-done.
+the global defaults already cover verify-before-done.
 
 ## Process
 
-1. **Plan first.** Break the work into small, verifiable steps as a checklist (write it
-   to `tasks/todo.md` if the repo uses one). Check in with me before implementing.
+1. **Break the task down.** Decompose the work into small, outcome-based items — each a
+   verifiable result or acceptance criterion, not an implementation step. Write them as a
+   checklist to a scratch file in the repo, e.g. `claude/temp/<task-slug>.md` (keep
+   `claude/temp/` gitignored — these are throwaway working files). The breakdown is the
+   plan; don't add a separate planning phase.
 2. **Fan out to subagents.** Offload research, exploration, and parallel analysis to
    subagents to keep the main context clean — one focused task per subagent. Don't spawn
    subagents for trivial work.
@@ -26,3 +29,7 @@ the global defaults already cover plan-first and verify-before-done.
    engineer approve this?"
 6. **Verify and summarize.** Prove it works (build, tests, logs, or observed behavior),
    then give a short summary of what changed at each step.
+
+As you finish each checklist item, mark it done (`[x]`) and write a one-line summary of
+the outcome beside it — note any failures, obstacles, or new findings. The file stays the
+running record of the task, so you can recover state if context is lost.
