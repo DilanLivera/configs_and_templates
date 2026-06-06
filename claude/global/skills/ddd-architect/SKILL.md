@@ -1,5 +1,5 @@
 ---
-name: solution-architect
+name: ddd-architect
 description: Act as a senior solution architect to design a software solution using Domain-Driven Design, producing design.md and architecture-decision-records.md from a REQUIREMENTS.md. Use when the user wants to design/architect an app, do domain modelling, or write ADRs (e.g. "design this application", "architect this with DDD", "write up the design and ADRs"). Companion to the business-analyst skill.
 ---
 

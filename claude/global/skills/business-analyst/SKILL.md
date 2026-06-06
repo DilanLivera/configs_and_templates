@@ -25,5 +25,5 @@ Produce a `REQUIREMENTS.md` in the current directory containing everything the
 Architect will need to design and plan the solution: the core requirements,
 constraints, success criteria, and any open questions that still need answers.
 
-Hand off to the `solution-architect` skill, which reads `REQUIREMENTS.md` to
+Hand off to the `ddd-architect` skill, which reads `REQUIREMENTS.md` to
 produce the design and architecture decision records.

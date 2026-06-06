@@ -38,4 +38,4 @@ to symlink it into `~/.claude/`. See [claude/README.md](claude/README.md) for de
 Two role-based workflows ship as Claude Code skills (synced via `claude/global/skills/`):
 
 - `business-analyst` — requirements discovery; produces `REQUIREMENTS.md`
-- `solution-architect` — DDD design; produces `design.md` + `architecture-decision-records.md`
+- `ddd-architect` — DDD design; produces `design.md` + `architecture-decision-records.md`
