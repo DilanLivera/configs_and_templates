@@ -32,6 +32,7 @@
   "effortLevel": "high",
   "verbose": true,
   "env": {
+    "CLAUDE_CODE_DISABLE_AWAY_SESSION_RECAP": "1",
     "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
     "OTEL_METRICS_EXPORTER": "otlp",
     "OTEL_LOGS_EXPORTER": "otlp",
