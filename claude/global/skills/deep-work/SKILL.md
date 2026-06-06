@@ -1,19 +1,21 @@
 ---
 name: deep-work
-description: Execute a substantial, multi-step task with full engineering rigor — break it into an outcome-based checklist tracked in a scratch file, fan research out to subagents, implement step-by-step with one atomic commit per step, do an elegance pass, and verify. Use when I explicitly ask to do something thoroughly / with rigor / "deep work", or for a meaty feature, refactor, or investigation. Skip for quick one-line fixes. Issue-agnostic — pair with gh-issue-task in issue-driven repos.
+description: Execute a substantial, multi-step task with full engineering rigor — break it into an outcome-based checklist tracked in a scratch file, fan research out to subagents, implement step-by-step with one atomic commit per step, do an elegance pass, and verify. Use when I explicitly ask to do something thoroughly / with rigor / "deep work", or for a meaty feature, refactor, or investigation. Skip for quick one-line fixes, and for work tracked by a GitHub issue — use gh-issue-breakdown / gh-issue-task instead (those keep the checklist in the issue).
 ---
 
 # Deep work — disciplined task execution
 
 A heavier, opt-in process for substantial work. For quick, obvious fixes, skip it —
-the global defaults already cover verify-before-done.
+the global defaults already cover verify-before-done. If the task is tracked by a GitHub
+issue, use `gh-issue-breakdown` / `gh-issue-task` instead — that workflow keeps the
+checklist in the issue, so running deep-work alongside it would duplicate the breakdown.
 
 ## Process
 
 1. **Break the task down.** Decompose the work into small, outcome-based items — each a
    verifiable result or acceptance criterion, not an implementation step. Write them as a
-   checklist to a scratch file in the repo, e.g. `claude/temp/<task-slug>.md` (keep
-   `claude/temp/` gitignored — these are throwaway working files). The breakdown is the
+   checklist to a scratch file in the repo, e.g. `.claude/temp/<task-slug>.md` (keep
+   `.claude/temp/` gitignored — these are throwaway working files). The breakdown is the
    plan; don't add a separate planning phase.
 2. **Fan out to subagents.** Offload research, exploration, and parallel analysis to
    subagents to keep the main context clean — one focused task per subagent. Don't spawn
