@@ -9,12 +9,12 @@ claude/
   global/
     settings.json           Global settings — symlinked to ~/.claude/settings.json
     statusline-command.sh   Status line script — symlinked to ~/.claude/statusline-command.sh
+    CLAUDE.md               Global memory — symlinked to ~/.claude/CLAUDE.md
     skills/                 Personal skills — symlinked to ~/.claude/skills/
     hooks/                  Hook scripts — symlinked to ~/.claude/hooks/
     mcp-servers.json        User-scoped MCP servers to register (stdio)
     agents/                 Custom subagents (optional) — symlinked if present
     commands/               Custom slash commands (optional) — symlinked if present
-    CLAUDE.md               Global memory (optional) — symlinked if present
     keybindings.json        Keybindings (optional) — symlinked if present
   install.sh                Installs global config on a new machine
   .gitignore                Tripwire so secrets / session state can't be committed
