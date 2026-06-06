@@ -55,6 +55,7 @@
   "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
   "model": "opus",
+  "effortLevel": "high",
   "env": {
     "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
     "OTEL_METRICS_EXPORTER": "otlp",
