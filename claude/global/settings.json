@@ -30,6 +30,7 @@
   "agentPushNotifEnabled": true,
   "model": "opus",
   "effortLevel": "high",
+  "verbose": true,
   "env": {
     "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
     "OTEL_METRICS_EXPORTER": "otlp",
