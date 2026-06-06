@@ -32,6 +32,6 @@ checklist in the issue, so running deep-work alongside it would duplicate the br
 6. **Verify and summarize.** Prove it works (build, tests, logs, or observed behavior),
    then give a short summary of what changed at each step.
 
-As you finish each checklist item, mark it done (`[x]`) and write a one-line summary of
-the outcome beside it — note any failures, obstacles, or new findings. The file stays the
-running record of the task, so you can recover state if context is lost.
+As you finish each checklist item, mark it done (`[x]`) and note the outcome beside it.
+A clean success needs only a few words; a failure, obstacle, or surprising finding gets as
+much detail as it needs to be useful later. The file stays the running record of the task, so you can recover state if context is lost.
