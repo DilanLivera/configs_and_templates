@@ -37,15 +37,15 @@ Safe to re-run — existing symlinks, marketplaces, plugins, and MCP servers are
 
 ## Hooks and portability
 
-`settings.json` points its hooks at stable `$HOME/.claude/hooks/...` paths (symlinked
-from `global/hooks/`), so the hook command is identical on every machine. The
-`slack-notify.sh` wrapper locates the external `griffin` repo wherever it lives
-(the parent dir name differs across machines — `repos` vs `repositories`) and
-no-ops if griffin isn't installed, so the hook never breaks. Set
-`GRIFFIN_SLACK_NOTIFY` to override the handler path explicitly.
-
 Don't hardcode machine-specific absolute paths in `settings.json` — route them
-through a wrapper in `global/hooks/` instead.
+through a wrapper in `global/hooks/` (symlinked to `~/.claude/hooks/`) so the hook
+command is a stable `$HOME/.claude/hooks/...` path that's identical on every machine.
+
+`slack-notify.sh` is an example of the pattern (kept for reference, not currently
+wired into `settings.json`): it locates the external `griffin` repo wherever it
+lives — the parent dir name differs across machines, `repos` vs `repositories` —
+or via `GRIFFIN_SLACK_NOTIFY`, and no-ops if griffin isn't installed. To enable it,
+add a hook in `settings.json` with command `bash $HOME/.claude/hooks/slack-notify.sh`.
 
 ## Caveat: settings.json can drift
 

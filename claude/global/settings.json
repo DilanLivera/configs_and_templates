@@ -10,32 +10,6 @@
       "Bash(gh *)"
     ]
   },
-  "hooks": {
-    "Notification": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash $HOME/.claude/hooks/slack-notify.sh",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "PreToolUse": [
-      {
-        "matcher": "AskUserQuestion",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash $HOME/.claude/hooks/slack-notify.sh",
-            "timeout": 10
-          }
-        ]
-      }
-    ]
-  },
   "statusLine": {
     "type": "command",
     "command": "bash $HOME/.claude/statusline-command.sh"
