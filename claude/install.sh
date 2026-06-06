@@ -1,15 +1,23 @@
 #!/usr/bin/env bash
-# Symlinks global Claude Code settings from this repo into ~/.claude/
+# Symlinks global Claude Code settings from this repo into ~/.claude/ and installs
+# the marketplaces + plugins declared in global/settings.json.
 # Run once after cloning; subsequent edits to the repo files take effect immediately.
+# Safe to re-run — existing symlinks, marketplaces, and plugins are left untouched.
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 GLOBAL_DIR="$REPO_DIR/global"
+SETTINGS="$GLOBAL_DIR/settings.json"
 CLAUDE_DIR="$HOME/.claude"
 
 symlink() {
   local src="$1"
   local dst="$2"
+
+  # Only link what actually exists in the repo (optional files are skipped).
+  if [ ! -e "$src" ]; then
+    return
+  fi
 
   if [ -L "$dst" ] && [ "$(readlink "$dst")" = "$src" ]; then
     echo "  ok $dst"
@@ -22,23 +30,48 @@ symlink() {
     mv "$dst" "$backup"
   fi
 
-  ln -sf "$src" "$dst"
+  ln -sfn "$src" "$dst"
   echo "  linked $dst -> $src"
 }
 
 echo "Installing Claude global settings..."
 mkdir -p "$CLAUDE_DIR"
+
+# Always-present files.
 symlink "$GLOBAL_DIR/settings.json"          "$CLAUDE_DIR/settings.json"
 symlink "$GLOBAL_DIR/statusline-command.sh"  "$CLAUDE_DIR/statusline-command.sh"
 
+# Directories / files that sync only if present in the repo. Directory symlinks
+# mean anything Claude Code writes there (e.g. a new skill) lands in the repo.
+symlink "$GLOBAL_DIR/skills"                 "$CLAUDE_DIR/skills"
+symlink "$GLOBAL_DIR/agents"                 "$CLAUDE_DIR/agents"
+symlink "$GLOBAL_DIR/commands"               "$CLAUDE_DIR/commands"
+symlink "$GLOBAL_DIR/hooks"                  "$CLAUDE_DIR/hooks"
+symlink "$GLOBAL_DIR/CLAUDE.md"              "$CLAUDE_DIR/CLAUDE.md"
+symlink "$GLOBAL_DIR/keybindings.json"       "$CLAUDE_DIR/keybindings.json"
+
+# Register marketplaces declared under extraKnownMarketplaces before installing
+# plugins — `claude plugins install` needs the marketplace registered first.
+echo "Registering marketplaces..."
+while IFS= read -r repo; do
+  [ -z "$repo" ] && continue
+  if claude plugins marketplace list --json 2>/dev/null | jq -e --arg r "$repo" '.[] | select(.repo == $r)' > /dev/null 2>&1; then
+    echo "  ok $repo"
+  else
+    echo "  adding $repo"
+    claude plugins marketplace add "$repo"
+  fi
+done < <(jq -r '(.extraKnownMarketplaces // {}) | to_entries[] | .value.source.repo // empty' "$SETTINGS")
+
 echo "Installing plugins..."
 while IFS= read -r plugin; do
+  [ -z "$plugin" ] && continue
   if claude plugins list --json 2>/dev/null | jq -e --arg p "$plugin" '.[] | select(.id == $p)' > /dev/null 2>&1; then
     echo "  ok $plugin"
   else
     echo "  installing $plugin"
     claude plugins install "$plugin"
   fi
-done < <(jq -r '.enabledPlugins | keys[]' "$GLOBAL_DIR/settings.json")
+done < <(jq -r '(.enabledPlugins // {}) | keys[]' "$SETTINGS")
 
 echo "Done."
