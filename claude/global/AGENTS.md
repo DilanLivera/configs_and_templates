@@ -1,9 +1,6 @@
 # AGENTS.md
 
-My standing instructions for every project, shared across AI coding agents. This is the
-canonical file; `~/.claude/CLAUDE.md` symlinks to it. A project's own memory file
-(`CLAUDE.md` / `AGENTS.md`) adds to or overrides anything here. Keep this file lean — it
-loads into every session.
+Standing preferences for all my projects; a project's own memory file overrides these.
 
 ## Core principles
 
