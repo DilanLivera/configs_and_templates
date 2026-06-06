@@ -13,9 +13,10 @@ overrides anything here. Keep this file lean — it loads into every session.
 
 - Plan before non-trivial work (3+ steps, or any architectural decision). If something
   goes sideways, stop and re-plan instead of pushing on.
-- Work autonomously on low-risk, easily reversible changes — don't ask for hand-holding.
-  First assess blast radius: if a change touches shared infrastructure, multiple modules,
-  config, or is hard to reverse or destructive, stop and ask before acting.
+- Assess blast radius before every change. Localised and easily reversible → proceed.
+  Touches shared infrastructure, multiple modules, config, or anything hard to reverse or
+  destructive → stop and ask for input before acting.
+- Otherwise work autonomously on low-risk, reversible work — don't ask for hand-holding.
 - Verify before claiming done. Run the build/tests, check logs, or demonstrate the
   behavior. If you can't verify it yourself, say so and tell me how.
 
