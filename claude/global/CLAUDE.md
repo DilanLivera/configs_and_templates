@@ -11,8 +11,6 @@ overrides anything here. Keep this file lean — it loads into every session.
 
 ## Working defaults
 
-- Plan before non-trivial work (3+ steps, or any architectural decision). If something
-  goes sideways, stop and re-plan instead of pushing on.
 - Assess blast radius before every change. Localised and easily reversible → proceed.
   Touches shared infrastructure, multiple modules, config, or anything hard to reverse or
   destructive → stop and ask for input before acting.
