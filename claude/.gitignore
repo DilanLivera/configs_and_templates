@@ -1,0 +1,31 @@
+# Tripwire: never commit Claude Code secrets or per-machine session state, even
+# if they get copied in by accident (e.g. a stray `cp -r ~/.claude/. ...`) or
+# written into a directory-level symlink. These never belong in version control.
+
+# Secrets / auth
+.credentials.json
+*.token
+mcp-needs-auth-cache.json
+
+# Session & machine-local state
+projects/
+sessions/
+session-env/
+tasks/
+file-history/
+shell-snapshots/
+history.jsonl
+paste-cache/
+downloads/
+backups/
+debug/
+ide/
+.last-cleanup
+.last-update-result.json
+
+# Plugin caches / generated registries (we sync settings.json, not these)
+**/cache/
+install-counts-cache.json
+blocklist.json
+installed_plugins.json
+known_marketplaces.json
