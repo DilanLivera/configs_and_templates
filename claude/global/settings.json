@@ -1,4 +1,14 @@
 {
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "OTEL_METRICS_EXPORTER": "otlp",
+    "OTEL_LOGS_EXPORTER": "otlp",
+    "OTEL_TRACES_EXPORTER": "otlp",
+    "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
+    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://100.114.245.77:4317",
+    "OTEL_LOG_USER_PROMPTS": "1",
+    "OTEL_LOG_RAW_API_BODIES": "1"
+  },
   "attribution": {
     "commit": "",
     "pr": ""
@@ -8,7 +18,12 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(gh *)"
-    ]
+    ],
+    "defaultMode": "default"
+  },
+  "model": "opus",
+  "worktree": {
+    "baseRef": "fresh"
   },
   "statusLine": {
     "type": "command",
@@ -25,21 +40,12 @@
       }
     }
   },
-  "autoMemoryEnabled": false,
-  "remoteControlAtStartup": true,
-  "agentPushNotifEnabled": true,
-  "model": "opus",
   "effortLevel": "high",
+  "awaySummaryEnabled": false,
+  "autoMemoryEnabled": false,
+  "editorMode": "normal",
   "verbose": true,
-  "env": {
-    "CLAUDE_CODE_DISABLE_AWAY_SESSION_RECAP": "1",
-    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
-    "OTEL_METRICS_EXPORTER": "otlp",
-    "OTEL_LOGS_EXPORTER": "otlp",
-    "OTEL_TRACES_EXPORTER": "otlp",
-    "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
-    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://100.114.245.77:4317",
-    "OTEL_LOG_USER_PROMPTS": "1",
-    "OTEL_LOG_RAW_API_BODIES": "1"
-  }
+  "preferredNotifChannel": "terminal_bell",
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true
 }
