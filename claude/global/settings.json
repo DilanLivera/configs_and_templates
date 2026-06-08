@@ -46,6 +46,8 @@
   "editorMode": "normal",
   "verbose": true,
   "preferredNotifChannel": "terminal_bell",
+  "terminalProgressBarEnabled": true,
   "remoteControlAtStartup": true,
+  "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true
 }
