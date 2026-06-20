@@ -56,6 +56,29 @@ Currently registered marketplaces:
 To add a marketplace: add it under `extraKnownMarketplaces` keyed by its declared `name`,
 add the plugins you want under `enabledPlugins`, then run `bash claude/install.sh`.
 
+### `dotnet-agent-skills` LSP requirement: `dnx` on PATH
+
+The `dotnet` plugin declares a C# Roslyn LSP server (`plugins/dotnet/lsp.json`) launched
+via the bare command `dnx`. It needs:
+
+- The **.NET 10 SDK** installed (ships the `dnx` tool runner).
+- **`dnx` resolvable on PATH.** Some installs only symlink `dotnet` into `/usr/bin` and
+  leave `dnx` under the SDK root (e.g. `/usr/lib/dotnet/dnx`), so bare `dnx` isn't found
+  and the LSP server silently fails to launch. Fix by putting the SDK root on PATH, e.g.
+  in `~/.profile`:
+
+  ```sh
+  if [ -x "/usr/lib/dotnet/dnx" ] ; then
+      case ":$PATH:" in
+          *":/usr/lib/dotnet:"*) ;;
+          *) PATH="$PATH:/usr/lib/dotnet" ;;
+      esac
+  fi
+  ```
+
+  This is a machine-local shell change, not tracked by this repo. Verify with
+  `bash -lc 'command -v dnx'`, then restart Claude Code so the spawned LSP inherits PATH.
+
 ## Hooks and portability
 
 Don't hardcode machine-specific absolute paths in `settings.json` — route them
