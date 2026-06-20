@@ -35,6 +35,27 @@ It:
 
 Safe to re-run — existing symlinks, marketplaces, plugins, and MCP servers are left untouched.
 
+## Plugins and marketplaces
+
+Plugin state is declared in `global/settings.json` and applied by `install.sh` — don't
+install plugins ad-hoc via `/plugin`, or the live config will drift from the repo.
+
+- `extraKnownMarketplaces` — each entry is a marketplace repo to register. **The key must
+  match the marketplace's declared `name` in its `.claude-plugin/marketplace.json`, not the
+  GitHub repo name** (e.g. `dotnet/skills` declares its name as `dotnet-agent-skills`). If
+  two marketplaces declare the same name, they collide — `claude plugins marketplace add`
+  will overwrite the existing entry rather than register a second one.
+- `enabledPlugins` — each key is `<plugin>@<marketplace-name>` to install and enable.
+
+Currently registered marketplaces:
+
+| Marketplace key       | Repo            | Notes                                       |
+| --------------------- | --------------- | ------------------------------------------- |
+| `dotnet-agent-skills` | `dotnet/skills` | Official .NET team skills (all 13 plugins). |
+
+To add a marketplace: add it under `extraKnownMarketplaces` keyed by its declared `name`,
+add the plugins you want under `enabledPlugins`, then run `bash claude/install.sh`.
+
 ## Hooks and portability
 
 Don't hardcode machine-specific absolute paths in `settings.json` — route them

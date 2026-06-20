@@ -30,13 +30,25 @@
     "command": "bash $HOME/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
-    "dotnet-skills@dotnet-skills": true
+    "dotnet@dotnet-agent-skills": true,
+    "dotnet-data@dotnet-agent-skills": true,
+    "dotnet-diag@dotnet-agent-skills": true,
+    "dotnet-msbuild@dotnet-agent-skills": true,
+    "dotnet-nuget@dotnet-agent-skills": true,
+    "dotnet-upgrade@dotnet-agent-skills": true,
+    "dotnet-maui@dotnet-agent-skills": true,
+    "dotnet-ai@dotnet-agent-skills": true,
+    "dotnet-template-engine@dotnet-agent-skills": true,
+    "dotnet-test@dotnet-agent-skills": true,
+    "dotnet-aspnetcore@dotnet-agent-skills": true,
+    "dotnet-blazor@dotnet-agent-skills": true,
+    "dotnet11@dotnet-agent-skills": true
   },
   "extraKnownMarketplaces": {
-    "dotnet-skills": {
+    "dotnet-agent-skills": {
       "source": {
         "source": "github",
-        "repo": "Aaronontheweb/dotnet-skills"
+        "repo": "dotnet/skills"
       }
     }
   },
