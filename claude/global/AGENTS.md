@@ -7,6 +7,7 @@ Standing preferences for all my projects; a project's own memory file overrides 
 - Simplicity first. Make each change as small as possible and touch only what's necessary.
 - Find root causes. No temporary patches or workarounds; hold to senior-developer standards.
 - Be specific. Prefer precise names, narrow role-based interfaces, and concrete examples over generic ones.
+- Modular design. Build from small units with a narrow public interface and a hidden implementation; hide the decisions most likely to change (Parnas). A module is a unit of information hiding — not a folder, not a layer.
 
 ## Working defaults
 
