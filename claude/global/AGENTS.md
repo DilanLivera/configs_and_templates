@@ -8,6 +8,7 @@ Standing preferences for all my projects; a project's own memory file overrides 
 - Find root causes. No temporary patches or workarounds; hold to senior-developer standards.
 - Be specific. Prefer precise names, narrow role-based interfaces, and concrete examples over generic ones.
 - Modular design. Build from small units with a narrow public interface and a hidden implementation; hide the decisions most likely to change (Parnas). A module is a unit of information hiding — not a folder, not a layer.
+- Acceptance tests first. When building applications, prove each feature with acceptance tests: plain-language scenarios that drive the real user-facing surface in-process, fake only true external boundaries, and assert on what a user would observe (Reqnroll/Gherkin on .NET).
 
 ## Working defaults
 
