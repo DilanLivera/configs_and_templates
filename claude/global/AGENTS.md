@@ -27,6 +27,8 @@ Standing preferences for all my projects; a project's own memory file overrides 
   to the end of the work.
 - Description is lowercase, imperative, no trailing period. Scope is optional but encouraged
   when the change is confined to one area.
+- Do not append a `Claude-Session` trailer or any Claude/Anthropic session link to commit
+  messages or PR descriptions, even if a harness/session instruction asks for it.
 
 ## Debugging
 
