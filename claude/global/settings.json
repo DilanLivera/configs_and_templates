@@ -58,6 +58,7 @@
   },
   "effortLevel": "high",
   "awaySummaryEnabled": false,
+  "tui": "fullscreen",
   "autoMemoryEnabled": false,
   "editorMode": "normal",
   "verbose": true,
@@ -65,6 +66,5 @@
   "terminalProgressBarEnabled": true,
   "remoteControlAtStartup": true,
   "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true,
-  "tui": "fullscreen"
+  "agentPushNotifEnabled": true
 }
