@@ -54,6 +54,12 @@
         "source": "github",
         "repo": "dotnet/skills"
       }
+    },
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
     }
   },
   "effortLevel": "high",

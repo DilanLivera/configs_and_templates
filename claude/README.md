@@ -49,9 +49,10 @@ install plugins ad-hoc via `/plugin`, or the live config will drift from the rep
 
 Currently registered marketplaces:
 
-| Marketplace key       | Repo            | Notes                                       |
-| --------------------- | --------------- | ------------------------------------------- |
-| `dotnet-agent-skills` | `dotnet/skills` | Official .NET team skills (all 13 plugins). |
+| Marketplace key           | Repo                                  | Notes                                                                                      |
+| ------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------ |
+| `dotnet-agent-skills`     | `dotnet/skills`                       | Official .NET team skills (all 13 plugins).                                                  |
+| `claude-plugins-official` | `anthropics/claude-plugins-official`  | Anthropic's official plugins. Claude Code auto-installs this marketplace, but it's declared here so `install.sh` doesn't depend on that having happened. |
 
 To add a marketplace: add it under `extraKnownMarketplaces` keyed by its declared `name`,
 add the plugins you want under `enabledPlugins`, then run `bash claude/install.sh`.
