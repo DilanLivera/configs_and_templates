@@ -57,6 +57,22 @@ Currently registered marketplaces:
 To add a marketplace: add it under `extraKnownMarketplaces` keyed by its declared `name`,
 add the plugins you want under `enabledPlugins`, then run `bash claude/install.sh`.
 
+### Where MCP servers come from
+
+MCP servers reach `~/.claude` by two different routes, and only one of them is
+`mcp-servers.json`:
+
+- **Bundled with a plugin.** The plugin ships its own `.mcp.json`, so enabling the plugin
+  brings the server with it. Playwright works this way — `playwright@claude-plugins-official`
+  declares `npx @playwright/mcp --browser chromium --headless` in the plugin, so it's tracked
+  by the `enabledPlugins` entry alone. These must **not** be added to `mcp-servers.json`.
+- **Standalone user-scoped servers.** Anything not tied to a plugin goes in
+  `global/mcp-servers.json` (stdio only), which `install.sh` registers via
+  `claude mcp add --scope user`. `context7` is the current example.
+
+So a server showing up in a session without a matching `mcp-servers.json` entry isn't
+necessarily untracked — check `enabledPlugins` before adding it.
+
 ### `dotnet-agent-skills` LSP requirement: `dnx` on PATH
 
 The `dotnet` plugin declares a C# Roslyn LSP server (`plugins/dotnet/lsp.json`) launched
