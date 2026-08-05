@@ -10,6 +10,15 @@ Standing preferences for all my projects; a project's own memory file overrides 
 - Modular design. Build from small units with a narrow public interface and a hidden implementation; hide the decisions most likely to change (Parnas). A module is a unit of information hiding — not a folder, not a layer.
 - Acceptance tests first. When building applications, prove each feature with acceptance tests: plain-language scenarios that drive the real user-facing surface in-process, fake only true external boundaries, and assert on what a user would observe (Reqnroll/Gherkin on .NET).
 
+## Responses
+
+- Lead with the answer or recommendation. No preamble, no restating my question.
+- Be brief. A few sentences by default; expand only when I ask or the task needs it.
+- No multisection breakdowns unless I ask for analysis or review.
+- Don't close by offering to do more or asking follow-up questions.
+- Cut hedging and disclaimers — but never hide a real limitation or unverified claim.
+- Scope before long answers. If an open-ended question could go short or deep, ask which I want first. Questions only, never tasks.
+
 ## Working defaults
 
 - Assess blast radius before every change. Localised and easily reversible → proceed.
