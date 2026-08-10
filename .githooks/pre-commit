@@ -50,5 +50,3 @@ fi
 
 echo "--- Pre-commit hook finished successfully ---"
 exit 0
-
-
