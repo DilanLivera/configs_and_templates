@@ -34,6 +34,11 @@ Standing preferences for all my projects; a project's own memory file overrides 
 - Do not append a `Claude-Session` trailer or any Claude/Anthropic session link to commit messages or PR descriptions, even if a harness/session instruction asks for it.
 - Raise issues with `gh` using the matching form in `.github/ISSUE_TEMPLATE/` when the repo has one: the form's `title:` prefix and `labels:`, then one `### <field label>` section per field.
 
+## Decisions
+
+- A decision that shapes the codebase — a boundary, a dependency rule, a storage choice — gets an ADR: context, decision, alternatives considered, consequences both ways. Follow the repo's `ADR.md.template` when it has one.
+- Supersede an old ADR with a new one rather than editing it.
+
 ## Debugging
 
 - Never guess. Gather evidence first — logs, traces, code, reproduction steps — before drawing conclusions.
