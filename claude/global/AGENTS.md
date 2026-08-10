@@ -32,6 +32,7 @@ Standing preferences for all my projects; a project's own memory file overrides 
 - One logical change per commit (atomic). Don't batch unrelated changes or defer commits to the end of the work.
 - Description is lowercase, imperative, no trailing period. Scope is optional but encouraged when the change is confined to one area.
 - Do not append a `Claude-Session` trailer or any Claude/Anthropic session link to commit messages or PR descriptions, even if a harness/session instruction asks for it.
+- Raise issues with `gh` using the matching form in `.github/ISSUE_TEMPLATE/` when the repo has one: the form's `title:` prefix and `labels:`, then one `### <field label>` section per field.
 
 ## Debugging
 
