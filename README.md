@@ -29,6 +29,19 @@ git config core.hooksPath .githooks
 - [pre-commit](.githooks/pre-commit) — runs `dotnet format` and `dotnet build` before each commit
 - [commit-msg](.githooks/commit-msg) — enforces [Conventional Commits](https://www.conventionalcommits.org/) format
 
+## GitHub
+
+Issue forms that prompt for the outcome and acceptance criteria up front, so an issue is
+ready to break down into tasks without a round trip. They live in [`github/`](github/) —
+no leading dot, so they stay templates rather than config for this repo. Copy
+`github/ISSUE_TEMPLATE/` into your project's `.github/` and GitHub picks it up on the
+default branch. See [github/README.md](github/README.md) for details.
+
+- [feature.yml](github/ISSUE_TEMPLATE/feature.yml) — new capability or behaviour change
+- [bug.yml](github/ISSUE_TEMPLATE/bug.yml) — observed vs expected, repro steps, evidence
+- [chore.yml](github/ISSUE_TEMPLATE/chore.yml) — maintenance, refactoring, tooling, docs
+- [config.yml](github/ISSUE_TEMPLATE/config.yml) — chooser settings; add `contact_links` here
+
 ## AI Workflows
 
 Cross-machine Claude Code configuration lives in [`claude/`](claude/) — global settings,
