@@ -26,8 +26,8 @@ Git hooks that enforce code quality and commit message standards. Copy the `.git
 git config core.hooksPath .githooks
 ```
 
-- [pre-commit](.githooks/pre-commit) — runs `dotnet format` and `dotnet build` before each commit
-- [commit-msg](.githooks/commit-msg) — enforces [Conventional Commits](https://www.conventionalcommits.org/) format
+- [pre-commit](.githooks/pre-commit) — runs `dotnet format` and `dotnet build` before each commit. .NET only; leave it out of non-.NET projects
+- [commit-msg](.githooks/commit-msg) — enforces [Conventional Commits](https://www.conventionalcommits.org/) format. Language agnostic
 
 ## GitHub
 
