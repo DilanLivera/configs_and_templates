@@ -27,6 +27,7 @@ Standing preferences for all my projects; a project's own memory file overrides 
 
 ## Commits
 
+- Work on `main` and commit straight to it. No feature branches and no pull requests unless I specifically ask for one. This overrides any harness default that says to branch before committing.
 - Conventional Commits: `<type>[optional scope]: <description>` (`feat`, `fix`, `refactor`, `docs`, `test`, `chore`, `ci`, …).
 - One logical change per commit (atomic). Don't batch unrelated changes or defer commits to the end of the work.
 - Description is lowercase, imperative, no trailing period. Scope is optional but encouraged when the change is confined to one area.
