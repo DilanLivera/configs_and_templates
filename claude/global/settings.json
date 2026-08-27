@@ -1,18 +1,58 @@
 {
-  "env": {
-    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
-    "OTEL_METRICS_EXPORTER": "otlp",
-    "OTEL_LOGS_EXPORTER": "otlp",
-    "OTEL_TRACES_EXPORTER": "otlp",
-    "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
-    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://100.114.245.77:4317",
-    "OTEL_LOG_USER_PROMPTS": "1",
-    "OTEL_LOG_RAW_API_BODIES": "1"
-  },
+  "agentPushNotifEnabled": true,
   "attribution": {
     "commit": "",
     "pr": ""
   },
+  "autoMemoryEnabled": false,
+  "awaySummaryEnabled": false,
+  "editorMode": "normal",
+  "effortLevel": "high",
+  "enabledPlugins": {
+    "dotnet-ai@dotnet-agent-skills": true,
+    "dotnet-aspnetcore@dotnet-agent-skills": true,
+    "dotnet-blazor@dotnet-agent-skills": true,
+    "dotnet-data@dotnet-agent-skills": true,
+    "dotnet-diag@dotnet-agent-skills": true,
+    "dotnet-maui@dotnet-agent-skills": true,
+    "dotnet-msbuild@dotnet-agent-skills": true,
+    "dotnet-nuget@dotnet-agent-skills": true,
+    "dotnet-template-engine@dotnet-agent-skills": true,
+    "dotnet-test@dotnet-agent-skills": true,
+    "dotnet-upgrade@dotnet-agent-skills": true,
+    "dotnet11@dotnet-agent-skills": true,
+    "dotnet@dotnet-agent-skills": true,
+    "frontend-design@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://100.114.245.77:4317",
+    "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
+    "OTEL_LOGS_EXPORTER": "otlp",
+    "OTEL_LOG_RAW_API_BODIES": "1",
+    "OTEL_LOG_USER_PROMPTS": "1",
+    "OTEL_METRICS_EXPORTER": "otlp",
+    "OTEL_TRACES_EXPORTER": "otlp"
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "repo": "anthropics/claude-plugins-official",
+        "source": "github"
+      }
+    },
+    "dotnet-agent-skills": {
+      "source": {
+        "repo": "dotnet/skills",
+        "source": "github"
+      }
+    }
+  },
+  "inputNeededNotifEnabled": true,
+  "model": "opus",
   "permissions": {
     "allow": [
       "Bash(git add:*)",
@@ -21,56 +61,16 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus",
+  "preferredNotifChannel": "terminal_bell",
+  "remoteControlAtStartup": true,
+  "statusLine": {
+    "command": "bash $HOME/.claude/statusline-command.sh",
+    "type": "command"
+  },
+  "terminalProgressBarEnabled": true,
+  "tui": "fullscreen",
+  "verbose": true,
   "worktree": {
     "baseRef": "fresh"
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "bash $HOME/.claude/statusline-command.sh"
-  },
-  "enabledPlugins": {
-    "dotnet@dotnet-agent-skills": true,
-    "dotnet-data@dotnet-agent-skills": true,
-    "dotnet-diag@dotnet-agent-skills": true,
-    "dotnet-msbuild@dotnet-agent-skills": true,
-    "dotnet-nuget@dotnet-agent-skills": true,
-    "dotnet-upgrade@dotnet-agent-skills": true,
-    "dotnet-maui@dotnet-agent-skills": true,
-    "dotnet-ai@dotnet-agent-skills": true,
-    "dotnet-template-engine@dotnet-agent-skills": true,
-    "dotnet-test@dotnet-agent-skills": true,
-    "dotnet-aspnetcore@dotnet-agent-skills": true,
-    "dotnet-blazor@dotnet-agent-skills": true,
-    "dotnet11@dotnet-agent-skills": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true
-  },
-  "extraKnownMarketplaces": {
-    "dotnet-agent-skills": {
-      "source": {
-        "source": "github",
-        "repo": "dotnet/skills"
-      }
-    },
-    "claude-plugins-official": {
-      "source": {
-        "source": "github",
-        "repo": "anthropics/claude-plugins-official"
-      }
-    }
-  },
-  "effortLevel": "high",
-  "awaySummaryEnabled": false,
-  "tui": "fullscreen",
-  "autoMemoryEnabled": false,
-  "editorMode": "normal",
-  "verbose": true,
-  "preferredNotifChannel": "terminal_bell",
-  "terminalProgressBarEnabled": true,
-  "remoteControlAtStartup": true,
-  "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true
+  }
 }
