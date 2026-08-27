@@ -53,6 +53,7 @@
   },
   "inputNeededNotifEnabled": true,
   "model": "opus",
+  "outputStyle": "Concise",
   "permissions": {
     "allow": [
       "Bash(git add:*)",
