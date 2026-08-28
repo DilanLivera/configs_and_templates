@@ -25,6 +25,16 @@ Standing preferences for all my projects; a project's own memory file overrides 
 - Otherwise work autonomously on low-risk, reversible work — don't ask for hand-holding.
 - Verify before claiming done. Run the build/tests, check logs, or demonstrate the behavior. If you can't verify it yourself, say so and tell me how.
 
+## Comments
+
+Plain words and real names — no metaphors, no nicknames.
+
+- Code comments: why.
+- `<summary>`: what it does. `<remarks>`: why.
+- `<param>`, `<returns>`, `<typeparam>`, `<exception>`: say what it is.
+- Doc-comment the public surface only, and say the why once.
+- Every comment and tag is one sentence. `<remarks>` and code comments: at most three.
+
 ## Commits
 
 - Commit straight to `main`. No branches, no pull requests, unless I ask.
