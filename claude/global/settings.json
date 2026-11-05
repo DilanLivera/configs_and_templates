@@ -1,13 +1,34 @@
 {
-  "agentPushNotifEnabled": true,
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "OTEL_EXPORTER_OTLP_ENDPOINT": "https://otel.lab.dilan.party",
+    "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
+    "OTEL_LOGS_EXPORTER": "otlp",
+    "OTEL_LOG_RAW_API_BODIES": "1",
+    "OTEL_LOG_USER_PROMPTS": "1",
+    "OTEL_METRICS_EXPORTER": "otlp",
+    "OTEL_TRACES_EXPORTER": "otlp"
+  },
   "attribution": {
     "commit": "",
     "pr": ""
   },
-  "autoMemoryEnabled": false,
-  "awaySummaryEnabled": false,
-  "editorMode": "normal",
-  "effortLevel": "high",
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(gh *)"
+    ],
+    "defaultMode": "auto"
+  },
+  "model": "opus",
+  "worktree": {
+    "baseRef": "fresh"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash $HOME/.claude/statusline-command.sh"
+  },
   "enabledPlugins": {
     "dotnet-ai@dotnet-agent-skills": true,
     "dotnet-aspnetcore@dotnet-agent-skills": true,
@@ -27,51 +48,30 @@
     "skill-creator@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true
   },
-  "env": {
-    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
-    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://100.114.245.77:4317",
-    "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
-    "OTEL_LOGS_EXPORTER": "otlp",
-    "OTEL_LOG_RAW_API_BODIES": "1",
-    "OTEL_LOG_USER_PROMPTS": "1",
-    "OTEL_METRICS_EXPORTER": "otlp",
-    "OTEL_TRACES_EXPORTER": "otlp"
-  },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
       "source": {
-        "repo": "anthropics/claude-plugins-official",
-        "source": "github"
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
       }
     },
     "dotnet-agent-skills": {
       "source": {
-        "repo": "dotnet/skills",
-        "source": "github"
+        "source": "github",
+        "repo": "dotnet/skills"
       }
     }
   },
-  "inputNeededNotifEnabled": true,
-  "model": "opus",
   "outputStyle": "Concise",
-  "permissions": {
-    "allow": [
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(gh *)"
-    ],
-    "defaultMode": "auto"
-  },
-  "preferredNotifChannel": "terminal_bell",
-  "remoteControlAtStartup": true,
-  "statusLine": {
-    "command": "bash $HOME/.claude/statusline-command.sh",
-    "type": "command"
-  },
-  "terminalProgressBarEnabled": true,
+  "effortLevel": "high",
+  "awaySummaryEnabled": false,
   "tui": "fullscreen",
+  "autoMemoryEnabled": false,
+  "editorMode": "normal",
   "verbose": true,
-  "worktree": {
-    "baseRef": "fresh"
-  }
+  "preferredNotifChannel": "terminal_bell",
+  "terminalProgressBarEnabled": true,
+  "remoteControlAtStartup": true,
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true
 }
