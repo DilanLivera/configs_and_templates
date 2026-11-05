@@ -482,3 +482,6 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# Claude Code writes these skills here through the ~/.claude/skills symlink, and some have proprietary licenses, so they stay out of the repo
+claude/global/skills/synced/
