@@ -60,12 +60,8 @@ Omit `Out of scope` if it's empty, but you should have actively looked.
 ## What NOT to do
 
 - **Don't use em dashes** anywhere in the comment.
-
 - **Don't start implementing.** The skill stops at posting the breakdown.
 - **Don't guess file locations or assume docs match reality.** Verify.
-- **Don't bundle adjacent gaps without flagging them.** Surface as a
-  checkpoint question.
-- **Don't add a separate verification paragraph.** Each task's
-  acceptance criteria already says how it's checked.
-- **Don't include implementation details** (file paths, line numbers, code
-  snippets, patterns to mirror). Those are decisions for the implementer.
+- **Don't bundle adjacent gaps without flagging them.** Surface as a checkpoint question.
+- **Don't add a separate verification paragraph.** Each task's acceptance criteria already say how it's checked.
+- **Don't include implementation details** (file paths, line numbers, code snippets, patterns to mirror). Those are decisions for the implementer.
