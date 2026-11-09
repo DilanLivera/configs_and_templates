@@ -18,6 +18,7 @@ description: Break a GitHub issue into a small task list and post it as a commen
    scope, design intent, choice between reasonable options, anything found
    mid-research that the issue doesn't address — stop and ask. If you catch
    yourself thinking "I'll assume X," that's the signal to ask instead.
+   Note every decision made in the discussion; they go in the comment.
 
 4. **Draft using the structure below.** Don't invent a different one.
 
@@ -27,14 +28,27 @@ description: Break a GitHub issue into a small task list and post it as a commen
 
 ## Output structure
 
-Use a single numbered task list (GFM `1. [ ]`, `2. [ ]`, …). One block per
+Open with the decisions made while discussing the issue, one bullet each, as
+a plain full sentence that states what was decided (and, when it departs from
+the issue or a mockup, says so). Omit the paragraph and list if no decisions
+were made.
+
+Then a single numbered task list (GFM `1. [ ]`, `2. [ ]`, …). One block per
 task — fold the acceptance criteria into the description with an em-dash;
-do **not** use a separate "Acceptance:" line or `- [ ]` bullets.
+do **not** use a separate "Acceptance:" line or `- [ ]` bullets. Add one task
+per decision that shapes the codebase (a boundary, a dependency rule, a
+storage choice, a data or URL contract) to record it as an ADR.
+
+    The following decisions were made for this issue.
+
+    - <decision, one plain sentence>.
+    - ...
 
     ## Implementation Tasks
 
     1. [ ] <deliverable in user/system terms> — <how we'll know it's done>.
-    2. [ ] ...
+    2. [ ] An ADR records <decision> — it gives the context, the decision, the alternatives considered and the consequences both ways.
+    3. [ ] ...
 
     ## Out of scope
 
@@ -49,5 +63,7 @@ Omit `Out of scope` if it's empty — but you should have actively looked.
 - **Don't guess file locations or assume docs match reality.** Verify.
 - **Don't bundle adjacent gaps without flagging them.** Surface as a
   checkpoint question.
+- **Don't add a separate verification paragraph.** Each task's em-dash
+  clause already says how it's checked.
 - **Don't include implementation details** (file paths, line numbers, code
   snippets, patterns to mirror). Those are decisions for the implementer.
