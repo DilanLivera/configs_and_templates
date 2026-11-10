@@ -69,6 +69,8 @@
   "autoMemoryEnabled": false,
   "editorMode": "normal",
   "verbose": true,
+  "alwaysThinkingEnabled": true,
+  "showThinkingSummaries": true,
   "preferredNotifChannel": "terminal_bell",
   "terminalProgressBarEnabled": true,
   "remoteControlAtStartup": true,
