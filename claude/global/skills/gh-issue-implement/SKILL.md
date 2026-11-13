@@ -1,14 +1,14 @@
 ---
 name: gh-issue-implement
-description: Implement a whole GitHub issue on a branch by working through every unchecked task in its breakdown, one after another, then run one Opus review over all the changes and open a pull request that closes the issue. Use when the user asks to implement, finish, or work through all tasks of a GH issue (e.g. "implement issue #11", "do all the tasks in issue #11", "work on issue #11", "pick up issue #11").
+description: Implement a whole GitHub issue on a branch by working through every unchecked task in its breakdown, one after another, in a draft pull request opened after the first commit, then run one Opus review over all the changes and mark the pull request ready. Use when the user asks to implement, finish, or work through all tasks of a GH issue (e.g. "implement issue #11", "do all the tasks in issue #11", "work on issue #11", "pick up issue #11").
 ---
 
 # GitHub Issue Implementation
 
 Companion to `gh-issue-breakdown`, which posts a numbered task list in an
 issue comment under `## Implementation Tasks`. This skill implements and
-verifies every task in that list, reviews all the changes once, and opens a
-pull request.
+verifies every task in that list in a draft pull request, reviews all the
+changes once, and marks the pull request ready.
 
 ## Standards
 
@@ -16,9 +16,10 @@ pull request.
   most readable code.
 - **Production quality throughout.** Treat every line as production app
   code, including tests, scripts and anything that looks temporary.
-- **Screenshots for UI work.** Capture the changed screens while verifying,
-  save them outside the repo (the session scratchpad when there is one), and
-  never commit them.
+- **Screenshots for UI work.** Capture the changed screens while verifying
+  and save them in `temp/` at the repo root with descriptive names. Leave
+  the folder untracked and unignored, so `git status` reminds the user to
+  add them to the pull request, and never stage it.
 - **Note improvements.** Whenever you spot something that could make the
   work more efficient (a tool, a script, a process, a repo change), note it
   with what it would improve. Don't act on it; the user evaluates the list.
@@ -52,11 +53,17 @@ pull request.
      conventions.
    - **Polish before committing.** Re-read the diff and ask whether there's
      a simpler, more elegant way; if anything feels hacky, redo it properly.
-     Then commit, one logical change per commit.
+     Then commit, one logical change per commit, and push.
+   - **Open the draft pull request** after the branch's first commit, if one
+     doesn't exist yet: `gh pr create --draft --base <base>`. The title
+     follows Conventional Commits and names the issue's outcome; the body
+     opens with `Closes #<N>`.
    - **Verify.** Run the full test suite and confirm every test passes; a
      red or skipped suite is a stop. Then launch and drive the real app with
      the `/run` skill and reproduce the acceptance criterion; passing tests
-     alone are not enough. If anything fails, fix it and verify again.
+     alone are not enough. Check the pull request's CI with `gh pr checks`
+     and treat a failure the same as a local one. If anything fails, fix it
+     and verify again.
    - **Tick the box.** Flip `N. [ ]` to `N. [x]` in the breakdown comment
      with `gh api repos/{owner}/{repo}/issues/comments/{comment_id} -X PATCH
      -f body=...`, sending the full updated body. The comment id comes from
@@ -86,14 +93,16 @@ pull request.
    a decision, ask the user instead of choosing yourself. Then rerun the
    full test suite and the end-to-end checks for every task.
 
-7. **Open a pull request.** Push the branch and run `gh pr create --base
-   <base>`. The title follows Conventional Commits and names the issue's
-   outcome. The body opens with `Closes #<N>`, then lists each task in one
-   line each, then the review fixes.
+7. **Mark the pull request ready.** Push, wait for CI to pass, then update
+   the body to `Closes #<N>` followed by each task in one line, then the
+   review fixes, and run `gh pr ready`. For UI work, end the body with a
+   `## Screenshots` section holding one placeholder line per screenshot,
+   such as `**<what it shows>**: drop <file name> here`, for the user to
+   replace with the image.
 
 8. **Report back** with the URLs of the pull request and the breakdown
-   comment, plus the full paths of any screenshots so
-   the user can attach them to the pull request, and the improvements you
+   comment, plus the screenshots folder so the user
+   can drop the images into the placeholders, and the improvements you
    noted, one line each.
 
 ## What NOT to do
@@ -102,8 +111,8 @@ pull request.
   defaults"; ask.
 - **Don't skip per-task verification.** Every task still gets the full test
   suite and an end-to-end check before its box is ticked.
-- **Don't skip the final review**, and don't open the pull request with
-  review findings unaddressed or verification failing.
+- **Don't skip the final review**, and don't mark the pull request
+  ready with review findings unaddressed or verification or CI failing.
 - **Don't merge tasks** into one change or one commit.
 - **Don't skip ahead** past a blocked task to later ones.
 - **Don't close the issue by hand or merge the pull request.** Review and
