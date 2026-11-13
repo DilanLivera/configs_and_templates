@@ -8,6 +8,7 @@ Standing preferences for all my projects; a project's own memory file overrides 
 - Inline by default. Inline a private method that has only one caller; extract a method only when it is called from more than one place.
 - Find root causes. No temporary patches or workarounds; hold to senior-developer standards.
 - Be specific. Prefer precise names, narrow role-based interfaces, and concrete examples over generic ones.
+- Railway-oriented error handling. Prefer railway-oriented programming (Result types) for flows that can fail with expected errors; use exceptions only for truly exceptional cases.
 - Modular design. Build from small units with a narrow public interface and a hidden implementation; hide the decisions most likely to change (Parnas). A module is a unit of information hiding — not a folder, not a layer.
 - Acceptance tests first. When building applications, prove each feature with acceptance tests: plain-language scenarios that drive the real user-facing surface in-process, fake only true external boundaries, and assert on what a user would observe (Reqnroll/Gherkin on .NET).
 
