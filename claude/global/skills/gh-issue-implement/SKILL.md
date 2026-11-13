@@ -31,28 +31,25 @@ review, which this skill runs once at the end over every change.
    comment. Skip its review and fix steps (4 and 5). Re-read the breakdown
    comment before each task so you work from its current state.
 
-5. **Keep going unless blocked.** Don't pause for approval between tasks.
-   Stop and ask the user only when:
-   - tests or end-to-end verification fail and the fix isn't clear,
-   - the task needs a decision the breakdown and its listed decisions don't
-     cover.
-
-   When you stop, leave that task unchecked and report what's blocking.
+5. **Never assume; the user makes every decision.** Don't pause for approval
+   between tasks, but stop and ask whenever something isn't settled by the
+   issue, the breakdown or its listed decisions: a design or naming choice,
+   an unclear requirement, a choice between reasonable options, or a failure
+   whose fix isn't clear. If you catch yourself thinking "I'll assume X",
+   that's the signal to ask. Leave the task unchecked while you wait.
 
 6. **Review once at the end.** When every task is checked, spawn the
    `claude` agent with `model: "opus"` to review `git diff <base>...HEAD`.
    Brief it as `gh-issue-task` step 4 describes, with the issue number and
    the full task list in place of a single task. Fix each finding and commit
-   the fixes; if you disagree with one, say so in your reply to the user and
-   skip it explicitly. Then rerun the full test suite and the end-to-end
+   the fixes. If you disagree with a finding, or fixing it needs a decision,
+   ask the user instead of choosing yourself. Then rerun the full test suite and the end-to-end
    checks for every task.
 
 7. **Open a pull request.** Push the branch and run `gh pr create --base
    <base>`. The title follows Conventional Commits and names the issue's
    outcome. The body opens with `Closes #<N>`, then lists each task with its
-   commit SHA(s), in one line each, then the review fixes. A pull request
-   into a `release/*` branch doesn't close the issue on merge, so tell the
-   user it stays open until the change reaches the default branch.
+   commit SHA(s), in one line each, then the review fixes.
 
 8. **Post a final summary** on the issue with `gh issue comment <N> --body ...`
    linking the pull request in one or two sentences.
@@ -62,6 +59,8 @@ review, which this skill runs once at the end over every change.
 
 ## What NOT to do
 
+- **Don't make decisions for the user.** No assumptions, no "reasonable
+  defaults"; ask.
 - **Don't skip per-task verification.** Every task still gets the full test
   suite and an end-to-end check before its box is ticked.
 - **Don't skip the final review**, and don't open the pull request with
