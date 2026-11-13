@@ -16,8 +16,6 @@ pull request.
   most readable code.
 - **Production quality throughout.** Treat every line as production app
   code, including tests, scripts and anything that looks temporary.
-- **Integration and acceptance tests only.** Prove each task with
-  integration and acceptance tests; don't write unit tests.
 - **Screenshots for UI work.** Capture the changed screens while verifying,
   save them outside the repo (the session scratchpad when there is one), and
   never commit them.
