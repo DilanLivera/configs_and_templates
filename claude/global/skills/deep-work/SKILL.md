@@ -1,13 +1,13 @@
 ---
 name: deep-work
-description: Execute a substantial, multi-step task with full engineering rigor — break it into an outcome-based checklist tracked in a scratch file, fan research out to subagents, implement step-by-step with one atomic commit per step, do an elegance pass, and verify. Use when I explicitly ask to do something thoroughly / with rigor / "deep work", or for a meaty feature, refactor, or investigation. Skip for quick one-line fixes, and for work tracked by a GitHub issue — use gh-issue-breakdown / gh-issue-task instead (those keep the checklist in the issue).
+description: Execute a substantial, multi-step task with full engineering rigor — break it into an outcome-based checklist tracked in a scratch file, fan research out to subagents, implement step-by-step with one atomic commit per step, do an elegance pass, and verify. Use when I explicitly ask to do something thoroughly / with rigor / "deep work", or for a meaty feature, refactor, or investigation. Skip for quick one-line fixes, and for work tracked by a GitHub issue — use gh-issue-breakdown / gh-issue-implement instead (those keep the checklist in the issue).
 ---
 
 # Deep work — disciplined task execution
 
 A heavier, opt-in process for substantial work. For quick, obvious fixes, skip it —
 the global defaults already cover verify-before-done. If the task is tracked by a GitHub
-issue, use `gh-issue-breakdown` / `gh-issue-task` instead — that workflow keeps the
+issue, use `gh-issue-breakdown` / `gh-issue-implement` instead — that workflow keeps the
 checklist in the issue, so running deep-work alongside it would duplicate the breakdown.
 
 ## Process
