@@ -44,9 +44,17 @@ pull request.
 4. **Work through the tasks in order.** Re-read the breakdown comment before
    each task so you work from its current state, then for the first
    unchecked task (`1. [ ]` … `N. [ ]`):
-   - **Implement.** The task line is the spec; the part after the colon is
-     its acceptance criterion. Follow the repo's `CLAUDE.md` conventions and
-     commit when the work is coherent, one logical change per commit.
+   - **Research with subagents.** Hand codebase exploration and research to
+     subagents, one focused question each, so the main context stays small.
+     Do trivial lookups yourself.
+   - **Test first.** The task line is the spec; the part after the colon is
+     its acceptance criterion. Write a failing acceptance or integration
+     test for that criterion before the implementation.
+   - **Implement** until the test passes, following the repo's `CLAUDE.md`
+     conventions.
+   - **Polish before committing.** Re-read the diff and ask whether there's
+     a simpler, more elegant way; if anything feels hacky, redo it properly.
+     Then commit, one logical change per commit.
    - **Verify.** Run the full test suite and confirm every test passes; a
      red or skipped suite is a stop. Then launch and drive the real app with
      the `/run` skill and reproduce the acceptance criterion; passing tests
