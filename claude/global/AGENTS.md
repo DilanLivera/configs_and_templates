@@ -51,10 +51,11 @@ Plain words and real names — no metaphors, no nicknames.
 - A decision that shapes the codebase — a boundary, a dependency rule, a storage choice — gets an ADR: context, decision, alternatives considered, consequences both ways. Follow the repo's `ADR.md.template` when it has one.
 - Supersede an old ADR with a new one rather than editing it.
 
-## Debugging
+## Debugging & Investigation
 
-- Never guess. Gather evidence first — logs, traces, code, reproduction steps — before drawing conclusions.
-- Diagnose the root cause from that evidence before changing anything. No hunch-driven fixes.
+1. **Never guess.** Gather information first — logs, traces, code, reproduction steps — before drawing any conclusions.
+2. **Diagnose before acting.** Use the evidence collected to identify the root cause with confidence. Do not make changes based on hunches.
+3. **Assess blast radius before every change.** If a fix is localised and easily reversible, proceed. If it touches shared infrastructure, multiple modules, config, or anything hard to reverse, stop and ask for input before acting.
 
 ## Changelog
 
