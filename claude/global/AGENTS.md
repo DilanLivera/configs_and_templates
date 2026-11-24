@@ -53,9 +53,8 @@ Plain words and real names — no metaphors, no nicknames.
 
 ## Debugging & Investigation
 
-1. **Never guess.** Gather information first — logs, traces, code, reproduction steps — before drawing any conclusions.
-2. **Diagnose before acting.** Use the evidence collected to identify the root cause with confidence. Do not make changes based on hunches.
-3. **Assess blast radius before every change.** If a fix is localised and easily reversible, proceed. If it touches shared infrastructure, multiple modules, config, or anything hard to reverse, stop and ask for input before acting.
+- Never guess. Gather information first — logs, traces, code, reproduction steps — before drawing any conclusions.
+- Diagnose before acting. Use the evidence collected to identify the root cause with confidence. Do not make changes based on hunches.
 
 ## Changelog
 
